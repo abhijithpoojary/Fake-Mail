@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Email</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Josefin+Slab:wght@100&family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Fake Mail</h1>
+
+    <div class="wrapper">
+        <form method="get">
+            <label for="from">Enter From address:</label>
+            <input type="email" id="from" size="50">
+            
+            <label for="to">Enter To address:</label>
+            <input type="email" id="to" size="50">
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" size="50">
+
+            <label for="body">Body:</label>
+            <textarea type="text" id="body" cols="90" rows="20"></textarea>
+
+            <button class="button" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <footer>
+        <p>Author: Abhijith BR<br><br>
+        <a href="https://radiant-harbor-31762.herokuapp.com/">My portfolio</a>
+        <a href="https://www.linkedin.com/in/abhijith-br-65262317b/">Linked in</a>
+        <a href="https://github.com/abhijithpoojary">github</a></p>
+       
+        
+      </footer>
+      
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+      <!-- Here is a script where we will be collecting data from the form  -->
+    <script>
+        $('form').on('submit', (e) => {
+            // e.preventDefault();
+
+            const from = $('#from').val().trim();
+            const email = $('#to').val().trim();
+            const subject = $('#subject').val().trim();
+            const message = $('#body').val().trim();
+
+            const data = {
+                from,
+                email,
+                subject,
+                message
+            };
+
+            $.post('/email', data, function() {
+                console.log('Server recieved our data');
+
+
+            });
+        });
+        // document.getElementById('#form-data').reset();
+    </script>
+
+</body>
+</html>
