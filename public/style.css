@@ -5,6 +5,18 @@ h1{
     text-align: center;
     margin-top: 50px;
 }
+
+h3{
+  font-family: 'Cinzel', serif;
+  text-align: center;
+}
+
+p{
+  font-family: 'Cinzel', serif;
+  font-family: 'Tangerine', cursive;
+  text-align: center;
+}
+
 body{
     background-color: #9aa19e54;
 }
